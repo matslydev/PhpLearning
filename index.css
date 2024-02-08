@@ -1,0 +1,50 @@
+/* Styles pour le corps de la page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+}
+
+/* Styles pour les titres */
+h1, h2 {
+    color: #333;
+}
+
+/* Styles pour les étiquettes des champs de formulaire */
+label {
+    font-weight: bold;
+}
+
+/* Styles pour les champs de formulaire */
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box; /* Inclure la bordure dans la largeur totale */
+}
+
+/* Styles pour le bouton de soumission du formulaire */
+input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Styles pour la table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Styles pour les cellules de la table */
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+/* Style pour les lignes impaires de la table */
+tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
