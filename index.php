@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion de contacts</title>
-    <link rel="stylesheet" href ="index.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <h1>Gestion de contacts</h1>
 
     <!-- Formulaire pour ajouter ou éditer un contact -->
     <h2>Ajouter/Éditer un contact</h2>
-    <form action="connexion.php" method="post">
+    <form action="traitement.php" method="post">
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="nom" required><br><br>
 
@@ -48,16 +48,24 @@
             <th>Pays</th>
             <th>Code Postal</th>
         </tr>
-        <tr>
-            <td>John Doe</td>
-            <td>john@example.com</td>
-            <td>123456789</td>
-            <td>123 Main St</td>
-            <td>Anytown</td>
-            <td>Country</td>
-            <td>12345</td>
-        </tr>
-        <!-- Ajoutez ici d'autres lignes pour chaque contact -->
+        <?php
+        // Affichage des données dans le tableau
+        if ($resultat->num_rows > 0) {
+            while($row = $resultat->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>" . $row["nom"] . "</td>";
+                echo "<td>" . $row["email"] . "</td>";
+                echo "<td>" . $row["telephone"] . "</td>";
+                echo "<td>" . $row["adresse"] . "</td>";
+                echo "<td>" . $row["ville"] . "</td>";
+                echo "<td>" . $row["pays"] . "</td>";
+                echo "<td>" . $row["code_postal"] . "</td>";
+                echo "</tr>";
+            }
+        } else {
+            echo "<tr><td colspan='7'>Aucun contact trouvé</td></tr>";
+        }
+        ?>
     </table>
 </body>
 </html>
