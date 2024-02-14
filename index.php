@@ -11,7 +11,7 @@
 
     <!-- Formulaire pour ajouter ou éditer un contact -->
     <h2>Ajouter/Éditer un contact</h2>
-    <form action="traitement.php" method="post">
+    <form id="contactForm" action="traitement.php" method="post" onsubmit="return validateForm()">
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="nom" required><br><br>
 
@@ -67,5 +67,19 @@
         }
         ?>
     </table>
+
+    <script>
+        function validateForm() {
+            var nom = document.getElementById("nom").value;
+            var email = document.getElementById("email").value;
+
+            // Vérifier si les champs nom et email sont vides
+            if (nom == "" || email == "") {
+                alert("Veuillez remplir tous les champs obligatoires.");
+                return false; // Empêcher la soumission du formulaire si un champ est vide
+            }
+            return true; // Autoriser la soumission du formulaire si les champs sont remplis
+        }
+    </script>
 </body>
 </html>

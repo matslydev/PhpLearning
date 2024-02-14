@@ -18,11 +18,13 @@
     exit();
   }
 
-  echo 'Success: A proper connection to MySQL was made.';
-  echo '<br>';
-  echo 'Host information: '.$mysqli->host_info;
-  echo '<br>';
-  echo 'Protocol version: '.$mysqli->protocol_version;
-
-  $mysqli->close();
+  else {
+    echo 'Success: A proper connection to MySQL was made.';
+    echo '<br>';
+    echo 'Host information: '.$mysqli->host_info;
+    echo '<br>';
+    echo 'Protocol version: '.$mysqli->protocol_version;
+  
+    $mysqli->close();
+  }
 ?>

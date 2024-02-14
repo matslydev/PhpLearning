@@ -2,67 +2,6 @@
 // Inclure le fichier de connexion à la base de données
 include 'connexion.php';
 
-// Vérifier si des données ont été soumises via le formulaire
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Récupérer les données du formulaire
-    $nom = $_POST['nom'];
-    $email = $_POST['email'];
-    $telephone = $_POST['telephone'];
-    $adresse = $_POST['adresse'];
-    $ville = $_POST['ville'];
-    $pays = $_POST['pays'];
-    $code_postal = $_POST['code_postal'];
-
-    // Requête d'insertion
-    $sql = "INSERT INTO contacts (nom, email, telephone, adresse, ville, pays, code_postal) 
-            VALUES ('$nom', '$email', '$telephone', '$adresse', '$ville', '$pays', '$code_postal')";
-
-    // Exécution de la requête
-    if ($connexion->query($sql) === TRUE) {
-        echo "Nouveau contact ajouté avec succès";
-    } else {
-        echo "Erreur : " . $sql . "<br>" . $connexion->error;
-    }
-} else {
-    // Si aucune donnée n'a été soumise via le formulaire, afficher un message d'erreur
-    echo "Erreur : Aucune donnée soumise";
-}
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Récupérer les données du formulaire
-    $id_contact = $_POST['id_contact']; // L'identifiant du contact à mettre à jour
-    $nouveau_nom = $_POST['nom'];
-    $nouvel_email = $_POST['email'];
-    $nouveau_telephone = $_POST['telephone'];
-    $nouvelle_adresse = $_POST['adresse'];
-    $nouvelle_ville = $_POST['ville'];
-    $nouveau_pays = $_POST['pays'];
-    $nouveau_code_postal = $_POST['code_postal'];
-
-    // Requête de mise à jour
-    $sql = "UPDATE contacts 
-            SET nom='$nouveau_nom', 
-                email='$nouvel_email', 
-                telephone='$nouveau_telephone', 
-                adresse='$nouvelle_adresse', 
-                ville='$nouvelle_ville', 
-                pays='$nouveau_pays', 
-                code_postal='$nouveau_code_postal' 
-            WHERE id=$id_contact";
-
-    // Exécution de la requête
-    if ($connexion->query($sql) === TRUE) {
-        echo "Contact mis à jour avec succès";
-    } else {
-        echo "Erreur : " . $sql . "<br>" . $connexion->error;
-    }
-} else {
-    // Si aucune donnée n'a été soumise via le formulaire, afficher un message d'erreur
-    echo "Erreur : Aucune donnée soumise";
-}
-
-
 // Inclure d'autres fichiers pour les fonctionnalités spécifiques
 include 'selection_contacts.php';
 include 'insertion_contact.php';
